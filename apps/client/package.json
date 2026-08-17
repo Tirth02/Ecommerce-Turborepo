@@ -21,6 +21,7 @@
     "zustand": "^5.0.7"
   },
   "devDependencies": {
+    "@tailwindcss/postcss": "^4",
     "@repo/eslint-config": "workspace:*",
     "@repo/typescript-config": "workspace:*",
     "@types/node": "^20",
