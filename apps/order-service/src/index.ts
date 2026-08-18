@@ -2,6 +2,9 @@ import Fastify from "fastify";
 
 const fastify = Fastify();
 
+fastify.get("/",(request,reply) => {
+    return reply.send("Order endpoint works");
+})
 const start = async() => {
     try{
         await fastify.listen({ port: 8001 });
