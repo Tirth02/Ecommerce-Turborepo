@@ -11,6 +11,14 @@ const TestPage = async () => {
     });
 
     const orderData = await orderRes.json();
+    
+    const paymentRes = await fetch("http://localhost:8002/test",{
+      headers: {
+        Authorization: `Bearer ${token}`
+      }
+    });
+    
+    const paymentData = await paymentRes.json();
 
 
     const resProduct = await fetch("http://localhost:8000/test",{
@@ -26,6 +34,7 @@ const TestPage = async () => {
   return (
     <div>
       <h1>Product Authentication status : {dataProduct.message}</h1>
+      <h1>Payment Authentication status : {paymentData.message}</h1>
       <h1>Order Authentication status : {orderData.message}</h1>
       
     </div>
