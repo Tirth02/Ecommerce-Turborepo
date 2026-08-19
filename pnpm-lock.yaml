@@ -196,6 +196,9 @@ importers:
 
   apps/order-service:
     dependencies:
+      '@clerk/fastify':
+        specifier: ^3.1.69
+        version: 3.1.69(fastify@5.12.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       fastify:
         specifier: ^5.12.0
         version: 5.12.0
@@ -318,6 +321,12 @@ packages:
     engines: {node: '>=20.9.0'}
     peerDependencies:
       express: ^4.17.0 || ^5.0.0
+
+  '@clerk/fastify@3.1.69':
+    resolution: {integrity: sha512-kWBU1Ohk6tFHTJRNwWLDkz95dz8/nwO2KCzolcoNpYPsTn/B/IjxFFRLnm0VRq9OD+/ek514x/W44QNnsz53tA==}
+    engines: {node: '>=20.9.0'}
+    peerDependencies:
+      fastify: '>=5'
 
   '@clerk/nextjs@7.7.6':
     resolution: {integrity: sha512-tIE5fq0vjfRR7lp+zmOXpIHKQDbSfoQG5eEe1uBxky1rfVdZzEyDIKrL4TC/w5jfB06ybD6/X2jsuk54tCtQWQ==}
@@ -2284,6 +2293,9 @@ packages:
   fast-uri@4.1.2:
     resolution: {integrity: sha512-TyGmBcbDTZXcb2cj5MV89DrF42DKvb3y5DDUNh95iO+IMeAzMkVSxK1PZRrRIpc9yg8U2GhGdbofNa0LS/a4Bw==}
 
+  fastify-plugin@5.1.0:
+    resolution: {integrity: sha512-FAIDA8eovSt5qcDgcBvDuX/v0Cjz0ohGhENZ/wpc3y+oZCY2afZ9Baqql3g/lC+OHRnciQol4ww7tuthOb9idw==}
+
   fastify@5.12.0:
     resolution: {integrity: sha512-A3RNEaDIHWaxFW8n8rNJaW1wQ+XAXuoU71llfUQJjuh5WaYLmKfRhhanaJBOx8m2EBPQkR6sDBovYdHNe9F6rA==}
 
@@ -3518,6 +3530,16 @@ snapshots:
       '@clerk/shared': 4.29.2(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       express: 5.2.1
       tslib: 2.8.1
+    transitivePeerDependencies:
+      - react
+      - react-dom
+
+  '@clerk/fastify@3.1.69(fastify@5.12.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)':
+    dependencies:
+      '@clerk/backend': 3.16.8(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+      '@clerk/shared': 4.29.2(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+      fastify: 5.12.0
+      fastify-plugin: 5.1.0
     transitivePeerDependencies:
       - react
       - react-dom
@@ -5399,6 +5421,8 @@ snapshots:
   fast-uri@3.1.5: {}
 
   fast-uri@4.1.2: {}
+
+  fastify-plugin@5.1.0: {}
 
   fastify@5.12.0:
     dependencies:
