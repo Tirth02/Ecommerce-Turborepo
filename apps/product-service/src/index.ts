@@ -17,17 +17,8 @@ app.get("/",(req: Request,res: Response) => {
 
 app.get("/test",(req:Request,res: Response) => {
     
-    const auth = getAuth(req);
-    console.log(auth);
-
-    if(!auth.userId)
-    {
-        return res.json({message:'You are not authenticated'})
-    }
-    else
-    {
-        return res.json({message: "Product service authenticated"});
-    }
+    return res.json({message: "Product service authenticated", userId: req.userId});
+    
 })
 
 app.listen(8000, () => {
