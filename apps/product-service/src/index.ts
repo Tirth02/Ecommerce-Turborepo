@@ -1,5 +1,6 @@
 import express, {Request,Response} from "express";
 import cors from "cors";
+import { clerkMiddleware, getAuth } from '@clerk/express'
 
 const app = express();
 app.use(cors({
@@ -8,8 +9,25 @@ app.use(cors({
 
 }))
 
+app.use(clerkMiddleware())
+
 app.get("/",(req: Request,res: Response) => {
     res.json("Product endpoint is working fine");
+})
+
+app.get("/test",(req:Request,res: Response) => {
+    
+    const auth = getAuth(req);
+    console.log(auth);
+
+    if(!auth.userId)
+    {
+        return res.json({message:'You are not authenticated'})
+    }
+    else
+    {
+        return res.json({message: "Product service authenticated"});
+    }
 })
 
 app.listen(8000, () => {
