@@ -1,5 +1,6 @@
 import Fastify from "fastify";
 import { clerkPlugin, getAuth } from '@clerk/fastify'
+import { shouldBeUser } from "./middleware/authMiddleware.js";
 
 const fastify = Fastify();
 
@@ -9,19 +10,8 @@ fastify.get("/",(request,reply) => {
     return reply.send("Order endpoint works");
 })
 
-fastify.get("/test",(request,reply) => {
-    const {userId} = getAuth(request);
-
-    if(!userId)
-    {
-        return reply.send({message: "You are not Authenticated yet!!!"});
-    }
-    else
-    {
-        return reply.send({message: "Order Service Authenticated!!!"});
- 
-    }
-    
+fastify.get("/test", {preHandler: shouldBeUser}, (request, reply) => {
+    return reply.send({message: "Order Service Authenticated!!!",userId: request.userId});
 })
 const start = async() => {
     try{
